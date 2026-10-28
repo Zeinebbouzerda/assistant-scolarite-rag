@@ -1,0 +1,22 @@
+# Environnement Python
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets
+.env
+.env.*
+
+# Exceptions : conserver le modèle de configuration sans secrets
+!.env.example
+
+# Environnement frontend
+node_modules/
+dist/
+
+# Fichiers temporaires
+*.log
+.ipynb_checkpoints/
+
+# Stockage local de la base vectorielle
+backend/storage/
