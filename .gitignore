@@ -2,6 +2,7 @@
 .venv/
 __pycache__/
 *.pyc
+<<<<<<< HEAD
 .pytest_cache/
 
 # Secrets : ne JAMAIS versionner
@@ -21,3 +22,27 @@ storage/
 .ipynb_checkpoints/
 .DS_Store
 __MACOSX/
+=======
+
+# Secrets
+.env
+.env.*
+
+# Exceptions : conserver le modèle de configuration sans secrets
+!.env.example
+
+# Environnement frontend
+node_modules/
+dist/
+
+# Fichiers temporaires
+*.log
+.ipynb_checkpoints/
+
+# Stockage local de la base vectorielle
+backend/storage/
+>>>>>>> f6178066c50f1531a66589daf2331eb41ba65e30
+
+storage/
+__MACOSX/
+data/corpus/corpus/

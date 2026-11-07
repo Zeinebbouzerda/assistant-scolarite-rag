@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Assistant Scolarité — RAG pour l'École d'Ingénieurs Hélianthe (EIH)
 
 Application web qui répond aux questions des étudiants **uniquement à partir des 7 documents officiels de l'École**, cite ses sources `[1]`, `[2]` et répond
@@ -119,3 +120,6 @@ Détails des métriques et de la lecture des résultats : `docs/PLAN_TRAVAIL.md`
 ## Limites connues
 
 Pas de mémoire de conversation (chaque question est indépendante) ; le seuil de score dépend du modèle d'embeddings ; le LLM peut mal appliquer une règle de précédence malgré le prompt ; les citations sont vérifiées *formellement* (le numéro existe), pas *sémantiquement*.
+=======
+# assistant-scolarite-rag
+>>>>>>> f6178066c50f1531a66589daf2331eb41ba65e30
