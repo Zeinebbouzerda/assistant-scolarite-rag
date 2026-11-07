@@ -1,0 +1,23 @@
+# Environnement Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Secrets : ne JAMAIS versionner
+.env
+.env.*
+!.env.example
+
+# Frontend
+node_modules/
+dist/
+
+# Base vectorielle locale (se régénère avec l'ingestion)
+storage/
+
+# Divers
+*.log
+.ipynb_checkpoints/
+.DS_Store
+__MACOSX/
