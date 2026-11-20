@@ -39,7 +39,7 @@ export default function SourcesPanel({ sources, activeId, onSelect, open, onClos
       {sources.length === 0 ? (
         <p className="muted">
           Les documents utilisés pour une réponse apparaissent ici. Cliquez sur une pastille
-          jaune dans la réponse pour afficher la source correspondante.
+          de citation dans la réponse pour afficher la source correspondante.
         </p>
       ) : (
         <ul className="source-list">

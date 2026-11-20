@@ -17,13 +17,16 @@ const SUGGESTIONS = [
 
 interface Props {
   types: string[];
+  /** Question pré-remplie depuis la page d'accueil (envoyée automatiquement une fois). */
+  initialQuestion?: string | null;
+  onConsumeInitialQuestion?: () => void;
 }
 
 /**
  * Vue principale de conversation RAG : envoi de questions filtrables par type et top-k,
  * affichage des réponses avec citations cliquables et synchronisation du panneau Sources.
  */
-export default function ChatView({ types }: Props) {
+export default function ChatView({ types, initialQuestion, onConsumeInitialQuestion }: Props) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -34,10 +37,20 @@ export default function ChatView({ types }: Props) {
   const [drawer, setDrawer] = useState(false);
   const endRef = useRef<HTMLDivElement>(null);
   const nextId = useRef(1);
+  const consumedRef = useRef(false);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
   }, [messages, loading]);
+
+  useEffect(() => {
+    if (initialQuestion && !consumedRef.current) {
+      consumedRef.current = true;
+      onConsumeInitialQuestion?.();
+      void send(initialQuestion);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialQuestion]);
 
   const selectedMsg = messages.find((m) => m.id === selected);
   const sources: Source[] =
