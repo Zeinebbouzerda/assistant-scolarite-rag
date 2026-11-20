@@ -19,6 +19,10 @@ interface Props {
   types: string[];
 }
 
+/**
+ * Vue principale de conversation RAG : envoi de questions filtrables par type et top-k,
+ * affichage des réponses avec citations cliquables et synchronisation du panneau Sources.
+ */
 export default function ChatView({ types }: Props) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");

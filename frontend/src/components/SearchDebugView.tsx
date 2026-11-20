@@ -2,6 +2,9 @@ import { FormEvent, useState } from "react";
 import { api, describeError } from "../api/client";
 import type { SearchHit } from "../api/types";
 
+/**
+ * Vue de débogage de la recherche vectorielle brute (POST /api/search, sans appel LLM).
+ */
 export default function SearchDebugView({ types }: { types: string[] }) {
   const [question, setQuestion] = useState("");
   const [topK, setTopK] = useState(5);

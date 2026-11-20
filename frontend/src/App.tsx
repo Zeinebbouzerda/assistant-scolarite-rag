@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { api } from "./api/client";
 import type { Health } from "./api/types";
 import ChatView from "./components/ChatView";
@@ -13,14 +13,28 @@ const TABS: { id: Tab; label: string }[] = [
   { id: "search", label: "Recherche" },
 ];
 
+/**
+ * Composant racine de l'application Assistant Scolarité.
+ * Gère la navigation entre les trois onglets (Conversation, Documents, Recherche)
+ * ainsi que l'indicateur d'état de l'API dans l'en-tête.
+ */
 export default function App() {
   const [tab, setTab] = useState<Tab>("chat");
   const [health, setHealth] = useState<Health | null | "down">(null);
   const docs = useDocuments();
 
-  useEffect(() => {
+  const refreshHealth = useCallback(() => {
     api.health().then(setHealth).catch(() => setHealth("down"));
-  }, [docs.documents.length]);
+  }, []);
+
+  useEffect(() => {
+    refreshHealth();
+  }, [refreshHealth]);
+
+  const handleReloadDocuments = useCallback(() => {
+    void docs.reload();
+    refreshHealth();
+  }, [docs.reload, refreshHealth]);
 
   return (
     <div className="app">
@@ -54,7 +68,12 @@ export default function App() {
       <main>
         {tab === "chat" && <ChatView types={docs.types} />}
         {tab === "documents" && (
-          <DocumentsView documents={docs.documents} loading={docs.loading} error={docs.error} onReload={docs.reload} />
+          <DocumentsView
+            documents={docs.documents}
+            loading={docs.loading}
+            error={docs.error}
+            onReload={handleReloadDocuments}
+          />
         )}
         {tab === "search" && <SearchDebugView types={docs.types} />}
       </main>

@@ -2,6 +2,10 @@ import { useCallback, useEffect, useState } from "react";
 import { api, describeError } from "../api/client";
 import type { DocumentInfo } from "../api/types";
 
+/**
+ * Hook chargé de récupérer la liste des documents indexés via GET /api/documents
+ * et d'en dériver la liste triée des types de documents disponibles pour les filtres.
+ */
 export function useDocuments() {
   const [documents, setDocuments] = useState<DocumentInfo[]>([]);
   const [loading, setLoading] = useState(true);

@@ -15,6 +15,8 @@ from backend.app.services.vector_store import VectorStore
 
 @dataclass
 class Container:
+    """Regroupe les dépendances partagées par l'API (configuration, embeddings, base, LLM, RAG)."""
+
     settings: Settings
     embedder: object
     store: VectorStore
@@ -26,6 +28,7 @@ class Container:
 def build_container(settings: Settings, embedder=None, llm: LLMClient | None = None,
                     collection_name: str | None = None,
                     storage_dir=None) -> Container:
+    """Construit et câble l'ensemble des services à partir de `settings`."""
     embedder = embedder or build_embedder(settings)
     store = VectorStore(storage_dir or settings.storage_dir / "chroma",
                         collection_name or settings.collection_name)
@@ -37,4 +40,5 @@ def build_container(settings: Settings, embedder=None, llm: LLMClient | None = N
 
 @lru_cache
 def get_container() -> Container:
+    """Retourne le singleton de services initialisé avec la configuration globale."""
     return build_container(get_settings())
