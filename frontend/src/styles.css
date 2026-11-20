@@ -205,6 +205,25 @@ button { cursor: pointer; }
 
 .brand-btn:hover { background: var(--paper-subtle); }
 
+.uni-logo {
+  display: block;
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  flex: none;
+}
+
+.uni-logo-sm {
+  height: 32px;
+}
+
+.brand-divider {
+  width: 1px;
+  height: 26px;
+  background: var(--line-strong);
+  flex: none;
+}
+
 .brand-mark {
   width: 36px;
   height: 36px;
@@ -525,6 +544,85 @@ button { cursor: pointer; }
   font-size: 0.9rem;
   line-height: 1.55;
   color: var(--ink);
+}
+
+/* Bandeau des 4 domaines universitaires (séparateurs fins, sans cartes répétitives) */
+.campus-strip {
+  margin-top: 2.5rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem 2rem;
+}
+
+.campus-item strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  margin-bottom: 0.35rem;
+  color: var(--ink);
+}
+
+.campus-item p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+/* Pied de page institutionnel */
+.landing-footer {
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+  padding: 2.25rem 1.5rem;
+}
+
+.landing-footer-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem 1.25rem;
+  max-width: 42rem;
+}
+
+.footer-brand p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.footer-link {
+  background: none;
+  border: 0;
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--vistoris-lake);
+  transition: opacity 150ms ease;
+}
+
+.footer-link:hover {
+  opacity: 0.78;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
 }
 
 /* Sections éditoriales */
@@ -1213,8 +1311,11 @@ textarea {
   .landing-nav-inner { padding: 0.75rem 1rem; gap: 0.75rem; }
   .landing-links { display: none; }
   .landing-nav-actions .status-pill { display: none; }
+  .brand-divider, .brand-sub { display: none; }
+  .uni-logo { height: 28px; }
   .landing-main { padding: 0 1rem 3.5rem; }
   .hero { padding: 2.75rem 0 2rem; gap: 2rem; }
+  .campus-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
   .stage-body { grid-template-columns: 1fr; }
   .stage-conversation { border-right: 0; border-bottom: 1px solid var(--line); padding: 1.25rem; }
   .stage-source { padding: 1.25rem; }

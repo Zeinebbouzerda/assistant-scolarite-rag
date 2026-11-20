@@ -151,20 +151,22 @@ export default function LandingPage({ health, documents, onLaunch }: Props) {
       <header className="landing-nav">
         <div className="landing-nav-inner">
           <div className="brand">
-            <span className="brand-mark" aria-hidden>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 3v18" />
-                <path d="M5 8c2.5 0 4.5 2 7 4 2.5-2 4.5-4 7-4" />
-                <path d="M5 16c2.5 0 4.5-2 7-4 2.5 2 4.5 4 7 4" />
-              </svg>
-            </span>
+            <img
+              src="/mundiapolis-logo.png"
+              alt="Université Mundiapolis"
+              className="uni-logo"
+              width={130}
+              height={42}
+            />
+            <span className="brand-divider" aria-hidden />
             <div>
               <span className="brand-title">Assistant scolarité</span>
-              <span className="brand-sub">École d'Ingénieurs Hélianthe</span>
+              <span className="brand-sub">Module RAG · 3ACINFO</span>
             </div>
           </div>
 
           <nav className="landing-links" aria-label="Navigation principale">
+            <a href="#domaines">Scolarité</a>
             <a href="#fonctionnement">Fonctionnement</a>
             <a href="#corpus">Corpus officiel</a>
           </nav>
@@ -292,6 +294,26 @@ export default function LandingPage({ health, documents, onLaunch }: Props) {
                 <blockquote className="stage-excerpt">{scenario.source.excerpt}</blockquote>
               </aside>
             </div>
+          </div>
+        </section>
+
+        {/* Domaines académiques couverts par le portail étudiant */}
+        <section id="domaines" className="campus-strip" aria-label="Domaines de la scolarité couverts">
+          <div className="campus-item">
+            <strong>Règlement &amp; Examens</strong>
+            <p>Validation des modules, rattrapages, absences justifiées et jurys d'année.</p>
+          </div>
+          <div className="campus-item">
+            <strong>Stages &amp; PFE</strong>
+            <p>Durées obligatoires, conventions, soutenances et notes de service modificatives.</p>
+          </div>
+          <div className="campus-item">
+            <strong>Mobilité internationale</strong>
+            <p>Semestres d'échange, double diplôme, crédits ECTS et critères d'éligibilité.</p>
+          </div>
+          <div className="campus-item">
+            <strong>Vie étudiante &amp; Campus</strong>
+            <p>Création de clubs, calendrier académique 2026-2027 et démarches administratives.</p>
           </div>
         </section>
 
@@ -423,6 +445,35 @@ export default function LandingPage({ health, documents, onLaunch }: Props) {
           </div>
         </section>
       </main>
+
+      <footer className="landing-footer">
+        <div className="landing-footer-inner">
+          <div className="footer-brand">
+            <img
+              src="/mundiapolis-logo.png"
+              alt="Université Mundiapolis"
+              className="uni-logo uni-logo-sm"
+              width={118}
+              height={38}
+            />
+            <p>
+              Université Mundiapolis Casablanca · Projet académique du module RAG (3ACINFO) —
+              corpus officiel École d'Ingénieurs Hélianthe (EIH).
+            </p>
+          </div>
+          <div className="footer-links">
+            <button type="button" className="footer-link" onClick={() => onLaunch({ tab: "chat" })}>
+              Conversation
+            </button>
+            <button type="button" className="footer-link" onClick={() => onLaunch({ tab: "documents" })}>
+              Documents
+            </button>
+            <button type="button" className="footer-link" onClick={() => onLaunch({ tab: "search" })}>
+              Recherche brute
+            </button>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

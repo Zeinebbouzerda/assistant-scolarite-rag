@@ -68,16 +68,17 @@ export default function App() {
           onClick={() => setView("landing")}
           aria-label="Retour à la page d'accueil"
         >
-          <span className="brand-mark" aria-hidden>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 3v18" />
-              <path d="M5 8c2.5 0 4.5 2 7 4 2.5-2 4.5-4 7-4" />
-              <path d="M5 16c2.5 0 4.5-2 7-4 2.5 2 4.5 4 7 4" />
-            </svg>
-          </span>
+          <img
+            src="/mundiapolis-logo.png"
+            alt="Université Mundiapolis"
+            className="uni-logo uni-logo-sm"
+            width={118}
+            height={38}
+          />
+          <span className="brand-divider" aria-hidden />
           <div>
             <h1>Assistant scolarité</h1>
-            <p>École d'Ingénieurs Hélianthe</p>
+            <p>3ACINFO · Corpus EIH</p>
           </div>
         </button>
         <nav aria-label="Sections">
