@@ -16,6 +16,9 @@ function formatDate(iso: string | null) {
   });
 }
 
+/**
+ * Panneau latéral (ou tiroir sur mobile) affichant les fragments cités pour la réponse sélectionnée.
+ */
 export default function SourcesPanel({ sources, activeId, onSelect, open, onClose }: Props) {
   const refs = useRef<Record<number, HTMLLIElement | null>>({});
 

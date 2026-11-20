@@ -9,6 +9,10 @@ interface Props {
   onReload: () => void;
 }
 
+/**
+ * Vue d'administration du corpus : liste les documents indexés, leurs métadonnées
+ * (version, date, liens de modification) et permet de relancer l'indexation.
+ */
 export default function DocumentsView({ documents, loading, error, onReload }: Props) {
   const [strategy, setStrategy] = useState<"structural" | "fixed">("structural");
   const [size, setSize] = useState("");

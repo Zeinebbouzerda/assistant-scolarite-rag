@@ -5,12 +5,14 @@ import type {
 // L'URL de l'API vient d'une variable d'environnement (frontend/.env).
 const BASE = (import.meta.env.VITE_API_URL ?? "http://localhost:8000").replace(/\/$/, "");
 
+/** Erreur HTTP ou réseau normalisée (status = 0 en cas d'erreur réseau/CORS). */
 export class ApiError extends Error {
   constructor(public status: number, message: string) {
     super(message);
   }
 }
 
+/** Exécute une requête JSON vers l'API FastAPI et lève ApiError en cas d'échec. */
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   let res: Response;
   try {
