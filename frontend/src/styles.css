@@ -697,10 +697,11 @@ button { cursor: pointer; }
    Espace de travail de l'application (Conversation, Documents, Recherche)
    ========================================================================== */
 .app {
-  min-height: 100dvh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   background: var(--paper);
+  overflow: hidden;
 }
 
 .app main {
@@ -760,7 +761,6 @@ button { cursor: pointer; }
   min-height: 0;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 400px;
-  height: calc(100dvh - 68px);
 }
 
 .chat { display: flex; flex-direction: column; min-height: 0; }
@@ -942,7 +942,14 @@ textarea:focus {
 .composer-row {
   display: flex;
   gap: 0.65rem;
-  align-items: stretch;
+  align-items: flex-end;
+}
+
+.composer-row .primary {
+  border-radius: var(--radius-sm);
+  min-height: 3.2rem;
+  padding: 0 1.4rem;
+  flex: none;
 }
 
 textarea {
@@ -1212,15 +1219,17 @@ textarea {
   .stage-conversation { border-right: 0; border-bottom: 1px solid var(--line); padding: 1.25rem; }
   .stage-source { padding: 1.25rem; }
   .arch-grid { grid-template-columns: 1fr; gap: 1.75rem; }
+  .corpus-row-main { flex-direction: column; gap: 0.15rem; }
   .closing-cta { padding: 1.5rem; }
 
-  .chat-layout { grid-template-columns: 1fr; height: calc(100dvh - 118px); }
+  .chat-layout { grid-template-columns: 1fr; }
   .topbar { padding: 0.6rem 0.9rem; }
   .topbar .status-pill { width: 100%; justify-content: center; }
   .messages { padding: 1rem; }
   .bubble { max-width: 100%; }
   .composer { padding: 0.7rem 0.9rem; }
-  .composer-row { flex-direction: column; }
+  .composer-row { flex-direction: column; align-items: stretch; }
+  .composer-row .primary { min-height: 2.75rem; }
 
   .sources {
     position: fixed;
