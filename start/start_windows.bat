@@ -57,8 +57,8 @@ if not exist "%ROOT_DIR%\storage\chroma" (
 )
 
 REM 5. Lancement du backend et du frontend dans deux fenetres separees
-echo [INFO] Demarrage du backend API sur http://localhost:8000 ...
-start "Assistant Scolarite - Backend" cmd /k "cd /d "%ROOT_DIR%" && call .venv\Scripts\activate.bat && uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 8000"
+echo [INFO] Demarrage du backend API sur http://localhost:9500 ...
+start "Assistant Scolarite - Backend" cmd /k "cd /d "%ROOT_DIR%" && call .venv\Scripts\activate.bat && uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 9500"
 
 echo [INFO] Demarrage du frontend sur http://localhost:5173 ...
 start "Assistant Scolarite - Frontend" cmd /k "cd /d "%ROOT_DIR%\frontend" && npm run dev"
